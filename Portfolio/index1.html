@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/cbb28f2d11.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+  <div class="container">
+     <nav>
+      <img src="logo.jpeg" class="logo">
+      <ul>
+        <li><a href="#header">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+      </ul>
+     </nav>
+     
+          <div class="header-text">
+      
+            <p>Web Development</p>
+            <h1>Hi, I'm <span>Anamika</span><br><i class="fa-sharp fa-solid fa-location-dot fa-beat fa-xs" style="color: #d31717;"></i> Mumbai </h1>
+            
+    
+         </div>
+        
+
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="about-col-1">
+        
+      </div>
+      <div class="about-col-2">
+        <h1 class="sub-title">About Me</h1>
+        <P>I am Anamika Thakur. I am from Mumbai.I have pursing bachlor degree in computer 
+          science from Mumbai University. I am hardworking ,problem solving and optimistic person.
+          my hobby is Teaching, Reading, problem solving.
+        </P>
+        <div class="tab-titles">
+          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('experience')">Experience</p>
+          <p class="tab-links" onclick="opentab('education')">Education</p>
+        </div>
+        <div class="tab-contents active-tab" id="skills">
+          <ul>
+           
+            <li><span>Full stack Web Development</span><br>Python(Django)framework<br>Backend and Frontend <br>MERN Stack</li>
+            <li><span>Database</span><br>Mysql <br>SQL <br>Mongodb(Unstructured database)</li>
+            
+          
+          </ul>
+
+        </div>
+        
+        <div class="tab-contents" id="experience">
+        
+
+        </div>
+        <div class="tab-contents" id="education">
+          <ul>
+           
+            <li><span>Graduation</span><br>BSC computer Science<br>Vidyavardhini’s
+              Annasaheb Vartak College 
+              of Arts,<br>
+              Kedarnath Malhotra College of Commerce, <br>
+              E. S. Andrades College of Science</li>
+            <li><span>12th</span><br>Science<br>Thomas Baptista Junior College</li>
+            <li><span>10th</span><br>Shastri Vidyalaya High School</li>
+          
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----services----- -->
+
+<div id="project">
+  <div class="container">
+    <h1 class="sub-title">Project</h1>
+    <div class="services-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Web Development</h2>
+        <p>Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser. It may, however, also include web design, web programming, and database management.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div>
+        <i class="fa-brands fa-app-store"></i>
+        <h2>Flutter Mobile App</h2>
+        <p>The app development process includes creating installable applications for the mobile devices and implementing backend services, for instance data access through an API. Testing the application on target devices is also part of the process.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div>
+        <i class="fa-solid fa-layer-group"></i>
+        <h2>Full Stack Development</h2>
+        <p>A full-stack developer is a developer or engineer who can build both the front end and the back end of a website. The front end (the parts of a website a user sees and interacts with) and the back end (the behind-the-scenes data storage and processing) require different skill sets.</p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!---contact-->
+<div id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class="sub-title">Contact Me</h1>
+        <p><a href="https://gmail.com"><i class="fas fa-paper-plane" ></i></a>mikat7920@gmail.com</p>
+        
+        <div class="social-icons">
+          <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://whatsapp.com"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://google.com"><i class="fa-brands fa-google fa-xs"></i></a>
+        </div>
+        <a href="Anamika.pdf" download class="btn btn2">Download CV</a>
+      </div>
+      
+      <div class="contact-right">
+        <form name="submit-to-google-sheet">
+          <input type="text" name="Name" placeholder="Your Name" required>
+          <input type="email" name="Email" placeholder="Your Email" required>
+          <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn btn2">Submit</button>
+        </form>
+        <span id="msg"></span>
+      </div>
+    </div>
+  </div>
+
+<div class="copyright">
+  <p>Copyright © made by Anamika</p>
+</div>
+</div>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzDKNHfGgee-CskEh8Eem7-7vR1G0wdRcbNRPrfMT014SJiS8qODvC4M_PwAQFcIQTa/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg =document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response =>{
+        msg.innerHTML= "Message sent successfully"
+        setTimeout(function(){
+          msg.innerHTML= ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+
+</script>
+</body>
+</html>
